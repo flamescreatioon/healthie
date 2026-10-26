@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/**
+ * Healthie Web — "Clinical Clarity" Design Tokens (1:1 port of `lib/app/theme/`).
+ *
+ * No hard-coded colours outside these tokens.
+ * Every numeric element uses OpenType tabular figures (`tabular-nums`) so
+ * columns of readings never jitter horizontally.
+ */
+
+:root,
+[data-theme="light"] {
+  --color-primary: #3b60e4;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #e7ecfd;
+  --color-on-primary-container: #0a2472;
+
+  --color-secondary: #08b2e3;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e0f7fc;
+  --color-on-secondary-container: #004b60;
+
+  --color-tertiary: #f18805;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #fff3e5;
+  --color-on-tertiary-container: #613100;
+
+  --color-error: #dc2626;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #faf9f9;
+  --color-on-surface: #080708;
+  --color-surface-lowest: #ffffff;
+  --color-surface-low: #f4f3f5;
+  --color-surface-container: #eceaef;
+  --color-surface-high: #e4e1e8;
+  --color-on-surface-variant: #55555e;
+
+  --color-outline: #737582;
+  --color-outline-variant: #d0d2dd;
+  --color-inverse-surface: #323031;
+  --color-on-inverse-surface: #f5eff1;
+
+  /* Semantic status colours — scarce on purpose */
+  --color-positive: #16a34a;
+  --color-warning: #f18805;
+  --color-critical: #dc2626;
+  --color-neutral: #5c6370;
+
+  /* Fixed per-metric accents */
+  --metric-bp: #3b60e4;
+  --metric-weight: #08b2e3;
+  --metric-hr: #d6336c;
+  --metric-spo2: #7c5cd6;
+  --metric-temp: #f18805;
+  --metric-glucose: #0f9d8c;
+
+  /* Spacing & Radii */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-touch: 48px;
+
+  --radius-control: 12px;
+  --radius-card: 16px;
+  --radius-hero: 20px;
+  --radius-pill: 9999px;
+
+  --elevation-card: 0 2px 10px rgba(8, 7, 8, 0.04);
+  --chart-grid: rgba(115, 117, 130, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #9db2ff;
+    --color-on-primary: #0a1b4d;
+    --color-primary-container: #27418f;
+    --color-on-primary-container: #dde1ff;
+
+    --color-secondary: #5fd0f5;
+    --color-on-secondary: #00364a;
+    --color-secondary-container: #004e66;
+    --color-on-secondary-container: #bee9ff;
+
+    --color-tertiary: #ffb865;
+    --color-on-tertiary: #4a2800;
+    --color-tertiary-container: #6a3e00;
+    --color-on-tertiary-container: #ffddbc;
+
+    --color-error: #ffb4ab;
+    --color-on-error: #690005;
+    --color-error-container: #93000a;
+    --color-on-error-container: #ffdad6;
+
+    --color-surface: #121114;
+    --color-on-surface: #e5e1e6;
+    --color-surface-lowest: #0d0d0f;
+    --color-surface-low: #1a1a1e;
+    --color-surface-container: #1e1e23;
+    --color-surface-high: #29282e;
+    --color-on-surface-variant: #c9c5d0;
+
+    --color-outline: #938f99;
+    --color-outline-variant: #49454f;
+    --color-inverse-surface: #e5e1e6;
+    --color-on-inverse-surface: #323031;
+
+    --color-positive: #4ade80;
+    --color-warning: #fbbf24;
+    --color-critical: #f87171;
+    --color-neutral: #9aa0a6;
+
+    /* Dark-mode-legible metric accents */
+    --metric-bp: #8fa9ff;
+    --metric-weight: #5fd0f5;
+    --metric-hr: #f783a9;
+    --metric-spo2: #b9a4f5;
+    --metric-temp: #ffb865;
+    --metric-glucose: #4fd1c5;
+
+    --elevation-card: 0 2px 12px rgba(0, 0, 0, 0.35);
+    --chart-grid: rgba(201, 197, 208, 0.18);
+  }
+}
+
+[data-theme="dark"] {
+  --color-primary: #9db2ff;
+  --color-on-primary: #0a1b4d;
+  --color-primary-container: #27418f;
+  --color-on-primary-container: #dde1ff;
+
+  --color-secondary: #5fd0f5;
+  --color-on-secondary: #00364a;
+  --color-secondary-container: #004e66;
+  --color-on-secondary-container: #bee9ff;
+
+  --color-tertiary: #ffb865;
+  --color-on-tertiary: #4a2800;
+  --color-tertiary-container: #6a3e00;
+  --color-on-tertiary-container: #ffddbc;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-surface: #121114;
+  --color-on-surface: #e5e1e6;
+  --color-surface-lowest: #0d0d0f;
+  --color-surface-low: #1a1a1e;
+  --color-surface-container: #1e1e23;
+  --color-surface-high: #29282e;
+  --color-on-surface-variant: #c9c5d0;
+
+  --color-outline: #938f99;
+  --color-outline-variant: #49454f;
+  --color-inverse-surface: #e5e1e6;
+  --color-on-inverse-surface: #323031;
+
+  --color-positive: #4ade80;
+  --color-warning: #fbbf24;
+  --color-critical: #f87171;
+  --color-neutral: #9aa0a6;
+
+  --metric-bp: #8fa9ff;
+  --metric-weight: #5fd0f5;
+  --metric-hr: #f783a9;
+  --metric-spo2: #b9a4f5;
+  --metric-temp: #ffb865;
+  --metric-glucose: #4fd1c5;
+
+  --elevation-card: 0 2px 12px rgba(0, 0, 0, 0.35);
+  --chart-grid: rgba(201, 197, 208, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Type scale classes matching AppTypography */
+.type-display {
+  font-size: 2.125rem; /* 34px */
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.type-headline {
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.type-title {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.33;
+  font-weight: 600;
+}
+
+.type-body {
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.type-label {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1.33;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.type-micro {
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Minimum 48px touch target & focus ring */
+.touch-target {
+  min-height: var(--space-touch);
+  min-width: var(--space-touch);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Restrained motion (150–250ms ease-out), honouring prefers-reduced-motion */
+.transition-calm {
+  transition: all 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

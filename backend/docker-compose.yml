@@ -1,0 +1,21 @@
+services:
+  pgsql:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: healthie
+      POSTGRES_USER: healthie
+      POSTGRES_PASSWORD: healthie
+    ports:
+      # Host port 5433: a local PostgreSQL already occupies 5432 on dev machines.
+      - "5433:5432"
+    volumes:
+      - healthie-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U healthie -d healthie"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  healthie-pgdata:
